@@ -1,0 +1,48 @@
+version: '3.8'
+services:
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    extra_hosts:
+        - 'host.docker.internal:host-gateway'
+    ports:
+      - '5173:5173'
+    restart: always
+    volumes:
+      - .:/var/www/html
+    networks:
+      - chatty
+    depends_on:
+      - server
+
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - '8080:8080'
+    volumes:
+      - 'chatty-server:/data/server'
+    networks:
+      - chatty
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - '27017:27017'      
+    volumes:
+      - 'chatty-mongodb:/data/db'
+    networks:
+      - chatty
+networks:
+    chatty:
+        driver: bridge
+volumes:
+    chatty-server:
+      driver: local
+    chatty-mongodb:
+      driver: local
