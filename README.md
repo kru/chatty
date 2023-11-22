@@ -45,17 +45,19 @@ API available under port 8080, http://localhost:8080/
 ## Shortcuts/Compromises made
 - Server project structure can be made more modular
 - No unit testing, should have covered some cases in the logic
-- No encryption as for local development
+- No encryption or secure layer added as it done for local development
+- I spend less time on the how UI looks
 
 ## Assume your application will go into production...
 
 What would be your approach to ensuring the application is ready for production (testing)?
 - Conduct e2e, load, and functional testing
+- Adjustment on the UI to make it easy to use and hassle free
 
 How would you ensure a smooth user experience as 1000’s of users start using your app simultaneously?
-- Optimize code by doing profiling
-- Single database connection 
-- Depend on the situation we can do horizontal scaling, spawing additional containers
+- Optimize BE code by doing profiling
+- Optimize FE code to make it seamless experience
+- Depend on the situation we can do horizontal scaling, such as by spawing additional containers for the BE to handle the load
 
 What key steps would you take to ensure application security?
 - Making sure the data UI and API utilizing https and have the API gateway in front of them to minimize risk
