@@ -71,7 +71,6 @@ async function onSubmit() {
     message.value = res.message;
     return router.push({ name: 'home' });
   }
-  console.log("RES", res)
   userStore.setAuth(true);
   userStore.setUser(res.user);
   userStore.setRoom(roomId.value);

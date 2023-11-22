@@ -2,12 +2,20 @@
 2023-11-22
 
 ## Instruction to run assiggment locally
-run the following command
+
+- Clone the project
+```
+git@github.com:kru/chatty.git
+```
+
+- Create `.env` under server file, and copy the values from `.env.example`
+
+- Run the following command in root project directory (one level with `docker-compose.yml`)
 ```
 docker-compose up
 ```
 
-User unable to join any room in the first run.
+**NOTE:** User unable to join any room in the first run.
 we need to create the room by the following request:
 
 ```
@@ -19,6 +27,10 @@ curl --request POST \
 	"name": "testing"
 }'
 ```
+
+Access the app via browser in http://localhost:5173
+
+API available under port 8080, http://localhost:8080/
 
 ## Time Spent
 - ~18 hours

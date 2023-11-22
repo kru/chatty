@@ -122,10 +122,11 @@ async function handleRoom(data, callback) {
 
   const roomCol = dbClient.db('chatty').collection('rooms');
 
-  await roomCol.insertOne({ _id: new ObjectId(), roomId: +roomId, messages: [], createdAt: new Date().toISOString() });
+  await roomCol.insertOne({ _id: new ObjectId(), roomId: +roomId, name, messages: [], createdAt: new Date().toISOString() });
 
   return callback(200, { 'message': `room ${roomId} created succesfully` });
 }
+
 handlers.rooms = function (data, callback) {
   switch (data.method) {
     case 'post':
