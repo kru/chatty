@@ -28,9 +28,11 @@ curl --request POST \
 }'
 ```
 
-Access the app via browser in http://localhost:5173
+Access the app via browser with this url http://localhost:5173
 
 API available under port 8080, http://localhost:8080/
+
+**NOTE:** to test with another user, we can use incognito mode or open another browser
 
 ## Time Spent
 - ~18 hours
